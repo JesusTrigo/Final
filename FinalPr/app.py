@@ -1,7 +1,7 @@
 import streamlit as st
-from pages.detection.detection import app as detection
-from pages.recomend.recomend import app as recomend
-from pages.scrap.scrap import app as scrap
+from pages.detection.detection import detection
+from pages.recomend.recomend import recomend
+from pages.scrap.scrap import scrap
 
 # Configurar la barra lateral para seleccionar la página
 st.sidebar.title('Selector de Páginas')
