@@ -2,7 +2,7 @@ import streamlit as st
 from . import home
 from pages.detection import detection
 from pages.recomend import recomend
-from pages.scrap import home
+#from pages.scrap import home
 
 
 def main():
@@ -18,8 +18,8 @@ elif page == 'Detección':
     detection.main()
 elif page == 'Recomendación':
     recomend.main()
-elif page == 'Scraping':
-    home.main()
+#elif page == 'Scraping':
+    #home.main()
 
 if __name__ == "__main__":
     main()
