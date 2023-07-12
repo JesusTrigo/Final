@@ -5,7 +5,7 @@ import os
 
 # ----------- READ DNN MODEL -----------
 # Model architecture
-prototxt = "model/MobileNetSSD_deploy.prototxt.txt"
+prototxt = "FinalPr/pages/detection/model/MobileNetSSD_deploy.prototxt.txt"
 # Weights
 model = "model/MobileNetSSD_deploy.caffemodel"
 # Class labels
