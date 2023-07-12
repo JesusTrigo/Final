@@ -2,15 +2,13 @@ import streamlit as st
 import home
 from pages.detection import detection
 from pages.recomend import recomend
-import sys
-sys.path.append('FinalPr/pages/recomend/plots/plots.py')
-from pages.recomend import plots # Importa main de plots.py como plots
+from pages.recomend.plots import plots # Importa main de plots.py como plots
 #from pages.scrap import home
 
 def main():
     # Configurar la barra lateral para seleccionar la página
     st.sidebar.title('Selector de Páginas')
-    page = st.sidebar.selectbox('Seleccione una página', options=['Home', 'Detección', 'Recomendación', 'Scraping'])
+    page = st.sidebar.selectbox('Seleccione una página', options=['Home', 'Detección', 'Recomendación', 'Scraping', 'Plots'])
 
     # Dependiendo de la página seleccionada, mostrar el contenido correspondiente
     if page == 'Home':
@@ -20,7 +18,7 @@ def main():
     elif page == 'Recomendación':
         recomend.main()
     elif page == 'Plots':
-        plots.main()
+        plots.main() # Utiliza main de plots.py
     elif page == 'Scraping':
         home.main()
 
