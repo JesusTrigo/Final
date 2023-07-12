@@ -44,7 +44,7 @@ def main():
         if recomend_option == 'Código':
             recomend.main()
         elif recomend_option == 'Gráficos':
-            plots() # Llama a plots(), que se refiere a main() en plots.py
+            plots.main() # Llama a plots(), que se refiere a main() en plots.py
     elif page == 'Scraping':
         home.main()
 
