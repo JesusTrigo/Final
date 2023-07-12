@@ -1,7 +1,7 @@
 import streamlit as st
-from pages.detection.detection import detection
-from pages.recomend.recomend import recomend
-from pages.scrap.scrap import scrap
+from pages.detection import detection
+from pages.recomend import recomend
+from pages.scrap import scrap
 
 
 def main():
