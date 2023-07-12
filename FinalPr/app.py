@@ -8,7 +8,7 @@ from pages.recomend.plots import plots # Importa main de plots.py como plots
 def main():
     # Configurar la barra lateral para seleccionar la página
     st.sidebar.title('Selector de Páginas')
-    page = st.sidebar.selectbox('Seleccione una página', options=['Home', 'Detección', 'Recomendación', 'Scraping', 'Plots'])
+    page = st.sidebar.selectbox('Seleccione una página', options=['Home', 'Detección', 'Recomendación', 'Scraping'])
 
     # Dependiendo de la página seleccionada, mostrar el contenido correspondiente
     if page == 'Home':
@@ -16,9 +16,7 @@ def main():
     elif page == 'Detección':
         detection.main()
     elif page == 'Recomendación':
-        recomend.main()
-    elif page == 'Plots':
-        plots.main() # Utiliza main de plots.py
+        recomend.main() # Esta función ahora manejará tanto recomend como plots
     elif page == 'Scraping':
         home.main()
 
