@@ -1,7 +1,7 @@
 import streamlit as st
 #from pages.detection import detection
 from pages.recomend import recomend
-from pages.scrap import scrap
+from pages.scrap import home
 
 
 def main():
@@ -30,7 +30,7 @@ page = st.sidebar.selectbox('Seleccione una página', options=['Detección', 'Re
 if page == 'Recomendación':
     recomend.main()
 elif page == 'Scraping':
-    scrap.main()
+    home.main()
 
 if __name__ == "__main__":
     main()
