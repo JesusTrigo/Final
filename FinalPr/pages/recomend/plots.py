@@ -8,6 +8,7 @@ import numpy as np
 import streamlit as st
 import plotly.graph_objects as go
 import pandas as pd
+import images
 
 # Función para obtener los 25 estilos de cerveza más comunes en el conjunto de datos
 def get_top_25_beer_styles(df_Beer):
