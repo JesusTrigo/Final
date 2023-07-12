@@ -4,6 +4,7 @@ from pages.detection import detection
 from pages.recomend import recomend
 from pages.recomend import plots
 #from pages.scrap import home
+from pages.recomend.plots import plot_most_common_beer_bar
 
 #def main():
     # Configurar la barra lateral para seleccionar la página
@@ -40,7 +41,7 @@ def main():
         if recomend_option == 'Código':
             recomend.main()
         elif recomend_option == 'Gráficos':
-            plots.main() # Llama a plots(), que se refiere a main() en plots.py
+            plot_most_common_beer_bar(df_Beer)
     elif page == 'Scraping':
         home.main()
 
