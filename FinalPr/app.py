@@ -41,7 +41,7 @@ def main():
         if recomend_option == 'Código':
             recomend.main()
         elif recomend_option == 'Gráficos':
-            plot_most_common_beer_bar()
+            plot_most_common_beer_bar(df_Beer)
     elif page == 'Scraping':
         home.main()
 
