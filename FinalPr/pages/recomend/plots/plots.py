@@ -9,15 +9,7 @@ import streamlit as st
 import plotly.graph_objects as go
 import pandas as pd
 
-
-st.set_option('deprecation.showPyplotGlobalUse', False)
-
-@st.cache
-def read_csv_streamlit():
-    url = "https://drive.google.com/u/0/uc?id=1ePhuTPZWNkW4Nw634dXxV21fneJRgNWo&export=download&confirm=t&uuid=61491d58-19cc-11ee-be56-0242ac120002"
-    df = pd.read_csv(url)
-    return df
-df_Beer = read_csv_streamlit()    
+  
 def main():    
     # Función para obtener los 25 estilos de cerveza más comunes en el conjunto de datos
     def get_top_25_beer_styles(df_Beer):
