@@ -2,7 +2,7 @@ import streamlit as st
 import home
 from pages.detection import detection
 from pages.recomend import recomend
-from pages.recomend.plots.plots import main
+from pages.recomend.plots import plots
 #from pages.scrap import home
 
 #def main():
