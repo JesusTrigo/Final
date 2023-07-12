@@ -5,7 +5,7 @@ from pages.recomend import recomend
 from pages.recomend import plots
 #from pages.scrap import home
 from pages.recomend.plots import plot_most_common_beer_bar
-import panda as pd
+import pandas as pd
 
 st.set_option('deprecation.showPyplotGlobalUse', False)
 
