@@ -8,7 +8,6 @@ import numpy as np
 import streamlit as st
 import plotly.graph_objects as go
 import pandas as pd
-import images
 
 # Función para obtener los 25 estilos de cerveza más comunes en el conjunto de datos
 def get_top_25_beer_styles(df_Beer):
@@ -61,20 +60,32 @@ def plot_most_common_beer_treemap(df_Beer):
 def plot_beer_wordcloud(df_Beer):
     # Contar cuántas veces aparece cada nombre de cerveza
     beer_counts = df_Beer['beer/name'].value_counts()
+    
+    # Obtén la ruta absoluta del archivo beer.png
+    current_dir = os.path.dirname(__file__)
+    image_path = os.path.join(current_dir, 'images/beer.png')
+    
     # Cargar una máscara con la forma de una cerveza
-    beer_mask = np.array(Image.open('images/beer.png'))
+    beer_mask = np.array(Image.open(image_path))
+    
     # Crear una nube de palabras con la máscara de la cerveza y otras configuraciones
     wordcloud = WordCloud(width=800, height=400, background_color='white', max_words=100, mask=beer_mask, contour_width=3, contour_color='black')
+    
     # Generar la nube de palabras a partir de las frecuencias de los nombres de las cervezas
     wordcloud.generate_from_frequencies(beer_counts)
+    
     # Crear una nueva figura de tamaño 10x10
     fig, ax = plt.subplots(figsize=(10, 10))
+    
     # Mostrar la nube de palabras
     ax.imshow(wordcloud, interpolation='bilinear')
+    
     # Quitar los ejes
     ax.axis('off')
+    
     # Asegurarse de que el gráfico se ajuste bien a la figura
     fig.tight_layout()
+    
     # Mostrar el gráfico
     st.pyplot(fig)
 
