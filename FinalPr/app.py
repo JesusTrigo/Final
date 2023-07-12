@@ -17,11 +17,11 @@ def main():
         home.main()
     elif page == 'Detección':
         detection.main()
-   elif page == 'Recomendación':
+    elif page == 'Recomendación':
         recomend.main()
     elif page == 'Plots':
         plots.main()
-   elif page == 'Scraping':
+    elif page == 'Scraping':
         home.main()
 
 if __name__ == "__main__":
