@@ -8,9 +8,7 @@ st.sidebar.title('Selector de Páginas')
 page = st.sidebar.selectbox('Seleccione una página', options=['Detección', 'Recomendación', 'Scraping'])
 
 # Dependiendo de la página seleccionada, mostrar el contenido correspondiente
-if page == 'Detección':
-    detection.main()
-elif page == 'Recomendación':
+if page == 'Recomendación':
     recomend.main()
 elif page == 'Scraping':
     scrap.main()
