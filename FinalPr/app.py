@@ -1,5 +1,5 @@
 import streamlit as st
-from . import home
+import home
 from pages.detection import detection
 from pages.recomend import recomend
 #from pages.scrap import home
