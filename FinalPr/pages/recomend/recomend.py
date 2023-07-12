@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 #import subprocess
-import plots
+from . import plots
 
 st.set_option('deprecation.showPyplotGlobalUse', False)
 
