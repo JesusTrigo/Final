@@ -18,8 +18,8 @@ elif page == 'Detección':
     detection.main()
 elif page == 'Recomendación':
     recomend.main()
-#elif page == 'Scraping':
-    #home.main()
+elif page == 'Scraping':
+    home.main()
 
 if __name__ == "__main__":
     main()
