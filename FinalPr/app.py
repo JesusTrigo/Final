@@ -2,6 +2,8 @@ import streamlit as st
 import home
 from pages.detection import detection
 from pages.recomend import recomend
+import sys
+sys.path.append('FinalPr/pages/recomend/plots/plots.py')
 from pages.recomend.plots import main as plots # Importa main de plots.py como plots
 #from pages.scrap import home
 
