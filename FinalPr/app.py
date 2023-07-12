@@ -1,1 +1,26 @@
-import streamlit as stfrom pages.detection import detectionfrom pages.recomend import recomendfrom pages.scrap import scrapimport homePAGES = {    "Home": home,    "Detection Page": detection,    "Recommendation Page": recomend,    "Scrap Page": scrap}def main():    st.sidebar.title('Navigation')    selection = st.sidebar.radio("Go to", list(PAGES.keys()))    page = PAGES[selection]    # Cada página tiene una función run()    page.run('home')    page.run('detection')    page.run('recomend')    page.run('scrap')if __name__ == "__main__":    main()
+import streamlit as st
+import home
+from pages.detection import detection
+from pages.recomend import recomend
+from pages.scrap import scrap
+
+PAGES = {
+    "Home": home,
+    "Detection Page": detection,
+    "Recommendation Page": recomend,
+    "Scrap Page": scrap
+}
+
+def main():
+    st.sidebar.title('Navigation')
+    selection = st.sidebar.radio("Go to", list(PAGES.keys()))
+    page = PAGES[selection]
+
+    # Cada página tiene una función run()
+    page.run('home')
+    page.run('detection')
+    page.run('recomend')
+    page.run('scrap')
+
+if __name__ == "__main__":
+    main()
