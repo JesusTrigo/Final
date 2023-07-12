@@ -4,7 +4,7 @@ from pages.detection import detection
 from pages.recomend import recomend
 import sys
 sys.path.append('FinalPr/pages/recomend/plots/plots.py')
-from pages.recomend.plots import plots # Importa main de plots.py como plots
+from pages.recomend import plots # Importa main de plots.py como plots
 #from pages.scrap import home
 
 def main():
