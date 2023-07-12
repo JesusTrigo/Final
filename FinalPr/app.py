@@ -27,7 +27,7 @@ from pages.recomend import plots
 def main():
     # Configurando la barra lateral para seleccionar la página
     st.sidebar.title('Selector de Páginas')
-    page = st.sidebar.selectbox('Seleccione una página', options=['Home', 'Detección', 'Recomendación', 'Scraping', 'Plots'])
+    page = st.sidebar.selectbox('Seleccione una página', options=['Home', 'Detección', 'Recomendación', 'Scraping'])
 
     # Dependiendo de la página seleccionada, mostrar el contenido correspondiente
     if page == 'Home':
