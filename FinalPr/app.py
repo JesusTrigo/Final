@@ -2,9 +2,8 @@ import streamlit as st
 import home
 from pages.detection import detection
 from pages.recomend import recomend
-from pages.recomend.plots import plots
+from pages.recomend.plots import main as plots # Importa main de plots.py como plots
 #from pages.scrap import home
-
 
 #def main():
 #    # Configurar la barra lateral para seleccionar la página
@@ -26,6 +25,7 @@ from pages.recomend.plots import plots
 #if __name__ == "__main__":
 #    main()
 
+
 def main():
     # Configurando la barra lateral para seleccionar la página
     st.sidebar.title('Selector de Páginas')
@@ -42,7 +42,7 @@ def main():
         if recomend_option == 'Código':
             recomend.main()
         elif recomend_option == 'Gráficos':
-            plots.main() # Ejecuta esto si 'Gráficos' es seleccionado
+            plots() # Llama a plots(), que se refiere a main() en plots.py
     elif page == 'Scraping':
         home.main()
 
