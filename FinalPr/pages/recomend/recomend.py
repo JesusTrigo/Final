@@ -92,7 +92,7 @@ def main():
             unsafe_allow_html=True
         )
         
-    plots.plot_most_common_beer_bar(df_Beer)
+    plots.main(plot_most_common_beer_bar(df_Beer))
     plots.plot_most_common_beer_treemap(df_Beer)
     plots.plot_beer_wordcloud(df_Beer)
     plots.plot_sentiment_distribution(df_Beer)
