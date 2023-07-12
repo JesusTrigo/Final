@@ -23,23 +23,22 @@ from pages.detection import detection
 from pages.recomend import recomend
 from pages.scrap import scrap
 
-PAGES = {
-    "Home": home,
-    "Detection Page": detection,
-    "Recommendation Page": recomend,
-    "Scrap Page": scrap
-}
+import streamlit as st
+from pages.detection.detection import app as detection
+from pages.recomend.recomend import app as recomend
+from pages.scrap.scrap import app as scrap
 
-def main():
-    st.sidebar.title('Navigation')
-    selection = st.sidebar.radio("Go to", list(PAGES.keys()))
-    page = PAGES[selection]
+# Configurar la barra lateral para seleccionar la página
+st.sidebar.title('Selector de Páginas')
+page = st.sidebar.selectbox('Seleccione una página', options=['Detección', 'Recomendación', 'Scraping'])
 
-    # Cada página tiene una función run()
-    page.run('home')
-    page.run('detection')
-    page.run('recomend')
-    page.run('scrap')
+# Dependiendo de la página seleccionada, mostrar el contenido correspondiente
+if page == 'Detección':
+    detection.main()
+elif page == 'Recomendación':
+    recomend.main()
+elif page == 'Scraping':
+    scrap.main()
 
 if __name__ == "__main__":
     main()
