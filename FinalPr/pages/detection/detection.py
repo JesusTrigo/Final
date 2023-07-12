@@ -2,7 +2,6 @@ import streamlit as st
 import cv2
 import numpy as np
 import os
-os.environ['OPENCV_OPENGL_DISABLE'] = '1'
 
 # ----------- READ DNN MODEL -----------
 # Model architecture
