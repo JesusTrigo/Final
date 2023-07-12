@@ -7,7 +7,7 @@ import os
 # Model architecture
 prototxt = "FinalPr/pages/detection/model/MobileNetSSD_deploy.prototxt.txt"
 # Weights
-model = "model/MobileNetSSD_deploy.caffemodel"
+model = "FinalPr/pages/detection/model/MobileNetSSD_deploy.caffemodel"
 # Class labels
 classes = {
     0: "fondo", 1: "avión", 2: "bicicleta",
