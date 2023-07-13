@@ -188,21 +188,15 @@ def plot_beer_wordcloud(df_Beer):
     # Mostrar el gráfico utilizando st.image()
     st.image(wordcloud.to_image())
 
-def plot_3d_mesh(df_Beer):
-    # Obtener los estilos de cerveza más comunes
-    top_10_beer_styles = df_Beer['beer/style'].value_counts().index[:10]
-    df_top_10 = df_Beer[df_Beer['beer/style'].isin(top_10_beer_styles)]
-
-    # Crear el gráfico de malla 3D
+def plot_3d_mesh(df):
     fig = go.Figure(data=go.Mesh3d(
-        x=df_top_10['review/overall'],
-        y=df_top_10['review/palate'],
-        z=df_top_10['review/taste'],
-        color=df_top_10['beer/style'],
+        x=df['review/overall'],
+        y=df['review/palate'],
+        z=df['review/taste'],
+        color=df['beer/style'],
         opacity=0.8
     ))
 
-    # Configurar el diseño del gráfico
     fig.update_layout(
         title='Relación entre Calificación General, Paladar y Sabor',
         scene=dict(
@@ -212,5 +206,4 @@ def plot_3d_mesh(df_Beer):
         )
     )
 
-    # Mostrar el gráfico
     fig.show()
