@@ -46,7 +46,7 @@ def main():
     sino que también pretende ser una plataforma educativa para aquellos interesados en aprender más sobre la ciencia de datos y el aprendizaje automático.
     """)
     
-    st.write("El algoritmo está entrenado con las siguientes imágenes")
+    st.write("El algoritmo está entrenado con las siguientes imágenes:")
     col1, col2, col3 = st.columns(3)
     col1.header("")
     col2.header("")
