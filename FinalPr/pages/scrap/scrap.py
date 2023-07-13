@@ -163,11 +163,11 @@ def main():
     
     Si elige la opción 1:
     
-    En el primer input, ingrese la palabra clave y haga submit
+    - Primer input: ingrese la palabra clave y haga submit
     
-    En el segundo input, ingrese el número de registros y haga submit
+    - Segundo input: ingrese el número de registros y haga submit
     
-    Vuelva a hacer submit en el primer input
+    - Vuelva a hacer submit en el primer input
     """)
     ttt = True
     numero = 1
