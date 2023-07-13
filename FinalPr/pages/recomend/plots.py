@@ -90,7 +90,7 @@ def plot_sentiment_distribution(df_Beer):
     st.plotly_chart(fig)
     
    # Función para crear un heatmap con la correlación entre las características de las reseñas
- def plot_review_features_correlation(df_Beer):
+def plot_review_features_correlation(df_Beer):
     # Definir las características de la reseña que se van a correlacionar
     review_features = ['review/appearance', 'review/aroma', 'review/palate', 'review/taste']
     # Calcular la correlación entre estas características
