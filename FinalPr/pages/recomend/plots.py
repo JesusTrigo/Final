@@ -87,7 +87,7 @@ def plot_sentiment_distribution(df_Beer):
                         yaxis_title='Frecuencia')
         
         # Mostrar el histograma interactivo
-      st.plotly_chart(fig)
+    st.plotly_chart(fig)
     
    # Función para crear un heatmap con la correlación entre las características de las reseñas
  def plot_review_features_correlation(df_Beer):
