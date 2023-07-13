@@ -19,7 +19,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from webdriver_manager.chrome import ChromeDriverManager
 from bs4 import BeautifulSoup
-import helium
+#import helium
 from pprint import pprint
 import json
 import re
