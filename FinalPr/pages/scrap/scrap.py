@@ -170,7 +170,7 @@ def main():
     boton1 = False
     menu_bus = []
     data_from_airtable = pd.DataFrame(airtable_to_dataframe(BASE_ID, TABLE_ID, API_KEY))    
-    menu_bus = list(set(data_from_airtable["Búsqueda"]))    
+    menu_bus = list(set(data_from_airtable["Busqueda"]))    
     col1, col2 = st.columns(2)
     st.markdown("<hr>", unsafe_allow_html=True)
     st.write("1. Ingrese la palabra clave para explorar los datos de las películas mediante web scraping.")
