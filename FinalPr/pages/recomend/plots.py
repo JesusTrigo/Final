@@ -96,7 +96,7 @@ def plot_most_reviewed_beers(df_Beer):
         
     # Mostrar el gráfico interactivo
     st.plotly_chart(fig)
-    ax.set_title("Nube de palabras de nombres de cervezas")
+    plt.title("Nube de palabras de nombres de cervezas")
     
 # Función para crear un histograma con la distribución de los sentimientos
 def plot_sentiment_distribution(df_Beer):
