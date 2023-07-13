@@ -24,7 +24,7 @@ def main():
         elif recomend_option == 'Gráficos':
             plots.intro()
             plots.get_top_25_beer_styles(df_Beer)
-            #plots.plot_most_common_beer_bar(df_Beer)
+            plots.plot_most_common_beer_bar(df_Beer)
             plots.plot_most_reviewed_beers(df_Beer)
             plots.plot_sentiment_distribution(df_Beer)
             plots.plot_most_common_beer_treemap(df_Beer)
