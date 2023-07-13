@@ -31,7 +31,7 @@ def main():
             plots.plot_sentiment_beer_style_bubble(df_Beer)
             plots.plot_review_features_correlation(df_Beer)
             plots.plot_abv_beer_style_box(df_Beer)
-            plots.plot_3d_scatter_overall_palate_taste(df_Beer)
+            plots.plot_3d_scatter_aroma_palate_abv(df_Beer)
             plots.plot_beer_wordcloud(df_Beer)
     elif page == 'Scraping':
         scrap.main()
