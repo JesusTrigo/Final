@@ -188,7 +188,7 @@ def plot_beer_wordcloud(df_Beer):
     # Mostrar el gráfico utilizando st.image()
     st.image(wordcloud.to_image())
 
-def plot_3d_graph(df_Beer):
+def plot_3d_mesh(df_Beer):
     # Crear figura y eje 3D
     fig = plt.figure()
     ax = fig.add_subplot(111, projection='3d')
@@ -197,14 +197,19 @@ def plot_3d_graph(df_Beer):
     x = df_Beer['beer/ABV']
     y = df_Beer['review/appearance']
     z = df_Beer['review/aroma']
+    c = df_Beer['review/overall']
 
-    # Crear el gráfico 3D
-    ax.scatter(x, y, z)
+    # Crear el gráfico 3D de mallas
+    ax.plot_trisurf(x, y, z, cmap='viridis', linewidth=0.2)
 
     # Configurar etiquetas de los ejes
     ax.set_xlabel('ABV')
     ax.set_ylabel('Appearance')
     ax.set_zlabel('Aroma')
+
+    # Configurar la barra de colores
+    cbar = fig.colorbar(ax.collections[0])
+    cbar.set_label('Overall Rating')
 
     # Mostrar el gráfico en Streamlit
     st.pyplot(fig)
