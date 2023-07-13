@@ -44,7 +44,7 @@ def plot_most_common_beer_bar(df_Beer):
 
 def plot_beer_wordcloud(df_Beer):
     # Contar cuántas veces aparece cada nombre de cerveza
-    beer_counts = df_Beer['beer/name'].value_counts()
+    beer_counts = df_Beer['/app/final/FinalPr/pages/recomend/images/beer.png'].value_counts()
     # Cargar una máscara con la forma de una cerveza
     beer_mask = np.array(Image.open('beer.png'))
     # Crear una nube de palabras con la máscara de la cerveza y otras configuraciones
