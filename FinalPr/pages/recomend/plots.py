@@ -51,11 +51,11 @@ def plot_most_common_beer_treemap(df_Beer):
     st.pyplot(fig)
 
 # Función para crear una nube de palabras con los nombres de las cervezas
-def plot_beer_wordcloud(df_Beer, img_path):
+def plot_beer_wordcloud(df_Beer):
     # Contar cuántas veces aparece cada nombre de cerveza
     beer_counts = df_Beer['beer/name'].value_counts()
     # Cargar una máscara con la forma de una cerveza
-    beer_mask = np.array(Image.open('beer.png'))
+    beer_mask = np.array(Image.open('./pages/recomend/images/beer.png'))
     # Crear una nube de palabras con la máscara de la cerveza y otras configuraciones
     wordcloud = WordCloud(width=800, height=400, background_color='white', max_words=100, mask=beer_mask, contour_width=3, contour_color='black')
     # Generar la nube de palabras a partir de las frecuencias de los nombres de las cervezas
