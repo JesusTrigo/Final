@@ -20,7 +20,7 @@ from pages.recomend.plots import (
 
 st.set_option('deprecation.showPyplotGlobalUse', False)
 
-@st.cache
+@st.cache_data
 def read_csv_streamlit():
     url = "https://drive.google.com/u/0/uc?id=1ePhuTPZWNkW4Nw634dXxV21fneJRgNWo&export=download&confirm=t&uuid=61491d58-19cc-11ee-be56-0242ac120002"
     df = pd.read_csv(url)
