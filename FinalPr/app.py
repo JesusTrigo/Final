@@ -5,18 +5,18 @@ from pages.recomend import recomend
 from pages.recomend import plots
 #from pages.scrap import home
 import pandas as pd
-from pages.recomend.plots import (
-    get_top_25_beer_styles,
-    plot_most_common_beer_bar,
-    plot_most_common_beer_treemap,
-    plot_beer_wordcloud,
-    plot_sentiment_distribution,
-    plot_review_features_correlation,
-    plot_most_reviewed_beers,
-    plot_sentiment_beer_style_bubble,
-    plot_abv_beer_style_box,
-    plot_3d_scatter_overall_palate_taste
-)
+#from pages.recomend.plots import (
+    #get_top_25_beer_styles,
+    #plot_most_common_beer_bar,
+    #plot_most_common_beer_treemap,
+    #plot_beer_wordcloud,
+    #plot_sentiment_distribution,
+    #plot_review_features_correlation,
+    #plot_most_reviewed_beers,
+    #plot_sentiment_beer_style_bubble,
+    #plot_abv_beer_style_box,
+    #plot_3d_scatter_overall_palate_taste
+#)
 
 #st.set_option('deprecation.showPyplotGlobalUse', False)
 
@@ -62,16 +62,16 @@ def main():
         if recomend_option == 'Código':
             recomend.main()
         elif recomend_option == 'Gráficos':
-            get_top_25_beer_styles(plots.df_Beer)
-            plot_most_common_beer_bar(plots.df_Beer)
-            plot_most_common_beer_treemap(plots.df_Beer)
-            plot_beer_wordcloud(plots.df_Beer)
-            plot_sentiment_distribution(plots.df_Beer)
-            plot_review_features_correlation(plots.df_Beer)
-            plot_most_reviewed_beers(plots.df_Beer)
-            plot_sentiment_beer_style_bubble(plots.df_Beer)
-            plot_abv_beer_style_box(df_Beer)
-            plot_3d_scatter_overall_palate_taste(plots.df_Beer)
+            plots.get_top_25_beer_styles(plots.df_Beer)
+            plots.plot_most_common_beer_bar(plots.df_Beer)
+            plots.plot_most_common_beer_treemap(plots.df_Beer)
+            plots.plot_beer_wordcloud(plots.df_Beer)
+            plots.plot_sentiment_distribution(plots.df_Beer)
+            plots.plot_review_features_correlation(plots.df_Beer)
+            plots.plot_most_reviewed_beers(plots.df_Beer)
+            plots.plot_sentiment_beer_style_bubble(plots.df_Beer)
+            plots.plot_abv_beer_style_box(df_Beer)
+            plots.plot_3d_scatter_overall_palate_taste(plots.df_Beer)
     elif page == 'Scraping':
         home.main()
 
