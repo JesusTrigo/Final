@@ -57,16 +57,11 @@ def plot_beer_wordcloud(df_Beer):
     ax.imshow(wordcloud, interpolation='bilinear')
     # Quitar los ejes
     ax.axis('off')
-    
-    # Habilitar el zoom
-    mplcursors.cursor().connect("zoom", lambda _: None)
-    
     # Asegurarse de que el gráfico se ajuste bien a la figura
     fig.tight_layout()
     # Mostrar el gráfico
     st.pyplot(fig)
     
-        
 # Función para crear un gráfico de treemap con los 25 tipos de cerveza más comunes
     
 def plot_malla(df_Beer):
