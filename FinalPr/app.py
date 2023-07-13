@@ -4,8 +4,20 @@ from pages.detection import detection
 from pages.recomend import recomend
 from pages.recomend import plots
 #from pages.scrap import home
-from pages.recomend.plots import plot_most_common_beer_bar
 import pandas as pd
+from pages.recomend.plots import (
+    get_top_25_beer_styles,
+    plot_most_common_beer_bar,
+    plot_malla,
+    plot_most_common_beer_treemap,
+    plot_beer_wordcloud,
+    plot_sentiment_distribution,
+    plot_review_features_correlation,
+    plot_most_reviewed_beers,
+    plot_sentiment_beer_style_bubble,
+    plot_abv_beer_style_box,
+    plot_3d_scatter_overall_palate_taste
+)
 
 st.set_option('deprecation.showPyplotGlobalUse', False)
 
