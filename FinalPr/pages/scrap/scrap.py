@@ -160,9 +160,13 @@ def main():
     permitiendo a los usuarios acceder rápidamente a la información que buscan.
 
     ¿Cómo funciona?
+    
     Si elige la opción 1:
-    En el primer input, ingrese la palabra clavevy haga submit
+    
+    En el primer input, ingrese la palabra clave y haga submit
+    
     En el segundo input, ingrese el número de registros y haga submit
+    
     Vuelva a hacer submit en el primer input
     """)
     ttt = True
