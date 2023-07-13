@@ -1,6 +1,7 @@
 import matplotlib.pyplot as plt
 import seaborn as sns
 import squarify
+import pillow
 from PIL import Image
 from wordcloud import WordCloud
 import plotly.express as px
