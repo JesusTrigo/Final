@@ -74,16 +74,14 @@ def plot_beer_wordcloud(df_Beer):
     wordcloud = WordCloud(width=800, height=400, background_color='white', max_words=100, mask=beer_mask, contour_width=3, contour_color='black')
     # Generar la nube de palabras a partir de las frecuencias de los nombres de las cervezas
     wordcloud.generate_from_frequencies(beer_counts)
-    # Crear una nueva figura de tamaño 10x10
-    fig, ax = plt.subplots(figsize=(10, 10))
-    # Mostrar la nube de palabras
-    ax.imshow(wordcloud, interpolation='bilinear')
-    # Quitar los ejes
-    ax.axis('off')
-    # Asegurarse de que el gráfico se ajuste bien a la figura
-    fig.tight_layout()
+    # Mostrar el gráfico interactivo utilizando Streamlit
+    st.pyplot(wordcloud.to_image())
+    
+    # Añadir un título al gráfico
+    plt.title('Nube de palabras de nombres de cervezas')
+    plt.axis('off')
     # Mostrar el gráfico
-    st.pyplot(fig)
+    st.pyplot(plt.gcf())
     
 # Función para crear un histograma con la distribución de los sentimientos
 def plot_sentiment_distribution(df_Beer):
