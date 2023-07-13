@@ -16,7 +16,7 @@ def intro():
     A continuación de muestran una serie de gráficos que relacionan diversas variables de la base de datos
     
     """)
-
+    st.header(" ")
 # Función para obtener los 25 estilos de cerveza más comunes en el conjunto de datos
 def get_top_25_beer_styles(df_Beer):
     # Contar cuántas veces aparece cada tipo de cerveza y devolver los 25 primeros
