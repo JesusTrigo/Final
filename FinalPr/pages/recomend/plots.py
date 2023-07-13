@@ -62,10 +62,11 @@ def plot_beer_wordcloud(df_Beer):
     # Añadir un título al gráfico
     ax.set_title('Nube de Palabras de Nombres de Cervezas')
 
-    # Establecer la opción de deprecación para evitar errores al guardar la figura
+    # Habilitar la opción de zoom
     st.set_option('deprecation.showPyplotGlobalUse', False)
-    # Mostrar el gráfico en Streamlit
-    st.pyplot(fig)
+    
+    # Mostrar el gráfico en Streamlit con la capacidad de hacer zoom
+    st.pyplot(fig, use_column_width=True, zoom=3)
         
 # Función para crear un gráfico de treemap con los 25 tipos de cerveza más comunes
     
