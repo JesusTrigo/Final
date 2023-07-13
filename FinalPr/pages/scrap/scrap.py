@@ -571,7 +571,7 @@ def main():
            
             st.plotly_chart(fig_plotly)
 
-        except
+        except:
             pass
 
 
