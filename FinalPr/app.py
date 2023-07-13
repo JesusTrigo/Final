@@ -9,7 +9,7 @@ df_Beer = recomend.df_Beer
 def main():
     # Configurando la barra lateral para seleccionar la página
     st.sidebar.title('Selector de Páginas')
-    page = st.sidebar.selectbox('Seleccione una página', options=['Home', 'Detección', 'Recomendación', 'Scraping'])
+    page = st.sidebar.radio('Seleccione una página', options=['Home', 'Detección', 'Recomendación', 'Scraping'])
 
     # Dependiendo de la página seleccionada, mostrar el contenido correspondiente
     if page == 'Home':
@@ -18,7 +18,7 @@ def main():
         detection.main()
     elif page == 'Recomendación':
         st.sidebar.title('Selector de Recomendación') # Nuevo título para la sub-selección
-        recomend_option = st.sidebar.selectbox('Seleccione una opción', options=['App', 'Gráficos']) # Nuevo selectbox para sub-selección
+        recomend_option = st.sidebar.radio('Seleccione una opción', options=['App', 'Gráficos']) # Nuevo radio para sub-selección
         if recomend_option == 'App':
             recomend.main()
         elif recomend_option == 'Gráficos':
