@@ -41,31 +41,9 @@ def plot_most_common_beer_bar(df_Beer):
     )
     st.plotly_chart(fig) 
         
-# Función para crear una nube de palabras con los nombres de las cervezas
-
-def plot_beer_wordcloud(df_Beer):
-    # Contar cuántas veces aparece cada nombre de cerveza
-    beer_counts = df_Beer['beer/name'].value_counts()
-    # Cargar una máscara con la forma de una cerveza
-    beer_mask = np.array(Image.open('/app/final/FinalPr/pages/recomend/images/beer.png'))
-    # Crear una nube de palabras con la máscara de la cerveza y otras configuraciones
-    wordcloud = WordCloud(width=800, height=400, background_color='white', max_words=100, mask=beer_mask, contour_width=3, contour_color='black')
-    # Generar la nube de palabras a partir de las frecuencias de los nombres de las cervezas
-    wordcloud.generate_from_frequencies(beer_counts)
-    # Crear una nueva figura de tamaño 10x10
-    fig, ax = plt.subplots(figsize=(10, 10))
-    # Mostrar la nube de palabras
-    ax.imshow(wordcloud, interpolation='bilinear')
-    # Quitar los ejes
-    ax.axis('off')
-    # Asegurarse de que el gráfico se ajuste bien a la figura
-    fig.tight_layout()
-    # Mostrar el gráfico utilizando st.image()
-    st.image(wordcloud.to_image())
     
 # Función para crear un gráfico de treemap con los 25 tipos de cerveza más comunes
-    
-    
+      
 def plot_most_common_beer_treemap(df_Beer):
     # Contar cuántas veces aparece cada tipo de cerveza y seleccionar los 25 primeros
     beer_counts = df_Beer['beer/style'].value_counts().nlargest(25).reset_index()
@@ -78,7 +56,23 @@ def plot_most_common_beer_treemap(df_Beer):
     # Mostrar el gráfico interactivo en Streamlit
     st.plotly_chart(fig)
     
-    
+# Función para crear un gráfico de barras con las 10 cervezas más revisadas
+def plot_most_reviewed_beers(df_Beer):
+    # Contar cuántas veces aparece cada nombre de cerveza y seleccionar los 10 primeros
+    top_beers = df_Beer['beer/name'].value_counts().head(10)
+        
+    # Crear la figura del gráfico circular
+    fig = go.Figure(data=[go.Pie(labels=top_beers.index, values=top_beers.values)])
+        
+    # Configurar el diseño del gráfico
+    fig.update_layout(
+        title='Las 10 cervezas más revisadas',
+        height=600,
+        width=800,
+    )
+        
+    # Mostrar el gráfico interactivo
+    st.plotly_chart(fig)    
     
 # Función para crear un histograma con la distribución de los sentimientos
 def plot_sentiment_distribution(df_Beer):
@@ -106,23 +100,6 @@ def plot_review_features_correlation(df_Beer):
     # Mostrar el gráfico
     st.pyplot(fig)
     
-# Función para crear un gráfico de barras con las 10 cervezas más revisadas
-def plot_most_reviewed_beers(df_Beer):
-    # Contar cuántas veces aparece cada nombre de cerveza y seleccionar los 10 primeros
-    top_beers = df_Beer['beer/name'].value_counts().head(10)
-        
-    # Crear la figura del gráfico circular
-    fig = go.Figure(data=[go.Pie(labels=top_beers.index, values=top_beers.values)])
-        
-    # Configurar el diseño del gráfico
-    fig.update_layout(
-        title='Las 10 cervezas más revisadas',
-        height=600,
-        width=800,
-    )
-        
-    # Mostrar el gráfico interactivo
-    st.plotly_chart(fig)
     
 # Función para crear un gráfico de burbujas con el sentimiento por estilo de cerveza
 def plot_sentiment_beer_style_bubble(df_Beer):
@@ -167,3 +144,25 @@ def plot_3d_scatter_overall_palate_taste(df_Beer):
     fig.update_layout(title='Relación entre Calificación General, Paladar y Sabor')
     # Mostrar el gráfico
     st.plotly_chart(fig)
+
+# Función para crear una nube de palabras con los nombres de las cervezas
+
+def plot_beer_wordcloud(df_Beer):
+    # Contar cuántas veces aparece cada nombre de cerveza
+    beer_counts = df_Beer['beer/name'].value_counts()
+    # Cargar una máscara con la forma de una cerveza
+    beer_mask = np.array(Image.open('/app/final/FinalPr/pages/recomend/images/beer.png'))
+    # Crear una nube de palabras con la máscara de la cerveza y otras configuraciones
+    wordcloud = WordCloud(width=800, height=400, background_color='white', max_words=100, mask=beer_mask, contour_width=3, contour_color='black')
+    # Generar la nube de palabras a partir de las frecuencias de los nombres de las cervezas
+    wordcloud.generate_from_frequencies(beer_counts)
+    # Crear una nueva figura de tamaño 10x10
+    fig, ax = plt.subplots(figsize=(10, 10))
+    # Mostrar la nube de palabras
+    ax.imshow(wordcloud, interpolation='bilinear')
+    # Quitar los ejes
+    ax.axis('off')
+    # Asegurarse de que el gráfico se ajuste bien a la figura
+    fig.tight_layout()
+    # Mostrar el gráfico utilizando st.image()
+    st.image(wordcloud.to_image())
