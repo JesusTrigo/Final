@@ -188,7 +188,7 @@ def plot_beer_wordcloud(df_Beer):
     # Mostrar el gráfico utilizando st.image()
     st.image(wordcloud.to_image())
 
-def plot_mesh_3d(df_Beer):
+def plot_3d_mesh(df_Beer):
     # Obtener los estilos de cerveza más comunes
     top_10_beer_styles = df_Beer['beer/style'].value_counts().index[:10]
     df_top_10 = df_Beer[df_Beer['beer/style'].isin(top_10_beer_styles)]
