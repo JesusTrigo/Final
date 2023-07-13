@@ -32,18 +32,18 @@ def main():
     # Mostrar las clases de objetos con las que el algoritmo está entrenado en columnas
     st.write("""
     Este proyecto es una aplicación web dinámica e interactiva de ciencia de datos que utiliza algoritmos de aprendizaje automático profundo para identificar y clasificar imágenes 
+    introducidas por los usuarios.
     
-    introducidas por los usuarios. Su objetivo principal es proporcionar a los usuarios la capacidad de analizar y clasificar imágenes con precisión y eficiencia, 
-    
+    Su objetivo principal es proporcionar a los usuarios la capacidad de analizar y clasificar imágenes con precisión y eficiencia, 
     ya sea para propósitos académicos, de investigación, o para cualquier uso práctico.
     
     Nuestro enfoque consistió en adaptar y personalizar un algoritmo de red neuronal convolucional preentrenado. 
-    
     Este algoritmo es conocido por su eficiencia en el procesamiento y reconocimiento de imágenes debido a su habilidad para detectar y aprender patrones 
-    
-    en los datos de entrada.En lugar de entrenar un modelo desde cero, que puede requerir una gran cantidad de tiempo y recursos, optamos por utilizar técnicas de transferencia de aprendizaje.
-    
+    en los datos de entrada. En lugar de entrenar un modelo desde cero, que puede requerir una gran cantidad de tiempo y recursos, optamos por utilizar técnicas de transferencia de aprendizaje.
     Esto implica tomar un modelo preentrenado y adaptarlo a nuestras necesidades específicas, lo que nos permite beneficiarnos del aprendizaje previo del modelo y ahorrar en recursos de entrenamiento.
+
+    Esta app no sólo está diseñada para ser una herramienta de clasificación de imágenes potente y precisa, 
+    sino que también pretende ser una plataforma educativa para aquellos interesados en aprender más sobre la ciencia de datos y el aprendizaje automático.
     """)
     
     st.write("El algoritmo está entrenado con las siguientes imágenes")
