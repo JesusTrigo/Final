@@ -610,23 +610,7 @@ def main():
             grouped = df_critica.groupby('Clasificación').agg({'Rating': 'mean', 'Reseñas Usuarios': 'mean', 'Reseñas Críticos': 'mean'})
             # Grafica las barras para las críticas de usuarios y críticos por clasificación
             grouped[['Reseñas Usuarios', 'Reseñas Críticos']].plot(kind='bar', stacked=True)
-            #plt.show()
-            st.pyplot(plt)
-        except:
-            pass
-        try:
-            plt.clf()
-            df_critica = dfselec[dfselec['Reseñas Usuarios'].notnull() & dfselec['Reseñas Críticos'].notnull()]
-            df_critica = df_critica.replace('Sin datos', pd.NaT)
-            # Elimina las filas que contienen NaN
-            df_critica = df_critica.dropna()
-            # Agrupa las películas por clasificación y calcula el promedio de rating y críticas de usuarios y críticos
-            grouped = df_critica.groupby('Clasificación').agg({'Rating': 'mean', 'Reseñas Usuarios': 'mean', 'Reseñas Críticos': 'mean'})
-            # Grafica las barras para las críticas de usuarios y críticos por clasificación
-            grouped[['Reseñas Usuarios', 'Reseñas Críticos']].plot(kind='bar', stacked=True)
-               
             st.pyplot(plt.gcf())
-           
         except:
             pass
 
