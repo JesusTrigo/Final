@@ -122,7 +122,6 @@ def plot_review_features_correlation(df_Beer):
     st.pyplot(fig)
     
     
-# Función para crear un gráfico de burbujas con el sentimiento por estilo de cerveza
 def plot_sentiment_beer_style_bubble(df_Beer):
     # Contar cuántas veces aparece cada combinación de estilo de cerveza y etiqueta de sentimiento
     sentiment_counts = df_Beer.groupby(['beer/style', 'sentiment_label']).size().reset_index(name='counts')
@@ -132,10 +131,20 @@ def plot_sentiment_beer_style_bubble(df_Beer):
     top_25_beer_styles = get_top_25_beer_styles(df_Beer)
     # Filtrar el dataframe para incluir solo los 25 estilos de cerveza más comunes
     sentiment_counts_top_25 = sentiment_counts[sentiment_counts['beer/style'].isin(top_25_beer_styles)]
-    # Crear un gráfico de burbujas con los estilos de cerveza en el eje x, las etiquetas de sentimiento en el eje y, el tamaño de las burbujas correspondiente al número de reseñas y el color de las burbujas correspondiente a la etiqueta de sentimiento
-    fig = px.scatter(sentiment_counts_top_25, x='beer/style', y='sentiment_label', size='review_count', color='sentiment_label', hover_name='beer/style', title='Relación de sentimientos por Top 25 estilos de cerveza (bubble scatter plot)')
-    # Actualizar las etiquetas de los ejes y el ángulo de las etiquetas del eje x
-    fig.update_layout(xaxis_tickangle=-45, xaxis_title='Beer Style', yaxis_title='Sentiment')
+    
+    # Agrega aquí otras variables que desees relacionar con el sentimiento y los estilos de cerveza
+    # Por ejemplo, si quieres agregar el ABV como variable adicional:
+    sentiment_counts_top_25['ABV_mean'] = df_Beer.groupby('beer/style')['beer/ABV'].mean()
+    
+    # Crear un gráfico de burbujas con los estilos de cerveza en el eje x, las etiquetas de sentimiento en el eje y, el tamaño de las burbujas correspondiente al número de reseñas, el color de las burbujas correspondiente a la etiqueta de sentimiento y el tamaño de las burbujas correspondiente al valor promedio de ABV
+    fig = px.scatter(sentiment_counts_top_25, x='beer/style', y='sentiment_label', size='review_count', color='sentiment_label', hover_name='beer/style', title='Relación de sentimientos por Top 25 estilos de cerveza (bubble scatter plot)', template='plotly_white', size_max=30, log_x=True)
+    fig.update_traces(marker=dict(line=dict(width=1, color='DarkSlateGrey')), selector=dict(mode='markers'))
+    fig.update_layout(xaxis_tickangle=-45, xaxis_title='Beer Style', yaxis_title='Sentiment', showlegend=False)
+    fig.update_yaxes(tickvals=sentiment_counts_top_25['sentiment_label'].unique())
+    
+    # Personaliza el tamaño y el color de las burbujas según la variable adicional (ABV_mean en este ejemplo)
+    fig.update_traces(marker=dict(size=sentiment_counts_top_25['ABV_mean'], sizemode='diameter', sizeref=0.05, colorscale='Blues'), selector=dict(mode='markers'))
+    
     # Mostrar el gráfico
     st.plotly_chart(fig)
     
