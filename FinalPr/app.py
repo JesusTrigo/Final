@@ -9,18 +9,19 @@ df_Beer = recomend.df_Beer
 def main():
     # Configurando la barra lateral para seleccionar la página
     st.sidebar.title('Selector de Páginas')
-    if st.sidebar.button('Home'):
+    page = st.sidebar.selectbox('Seleccione una página', options=['Home', 'Detección', 'Recomendación', 'Scraping'])
+
+    # Dependiendo de la página seleccionada, mostrar el contenido correspondiente
+    if page == 'Home':
         home.main()
-
-    if st.sidebar.button('Detección'):
+    elif page == 'Detección':
         detection.main()
-
-    if st.sidebar.button('Recomendación'):
+    elif page == 'Recomendación':
         st.sidebar.title('Selector de Recomendación') # Nuevo título para la sub-selección
-        if st.sidebar.button('App'):
+        recomend_option = st.sidebar.selectbox('Seleccione una opción', options=['App', 'Gráficos']) # Nuevo selectbox para sub-selección
+        if recomend_option == 'App':
             recomend.main()
-
-        if st.sidebar.button('Gráficos'):
+        elif recomend_option == 'Gráficos':
             plots.intro()
             plots.get_top_25_beer_styles(df_Beer)
             plots.plot_most_common_beer_bar(df_Beer)
@@ -32,8 +33,7 @@ def main():
             plots.plot_abv_beer_style_box(df_Beer)
             plots.plot_3d_scatter_overall_palate_taste(df_Beer)
             plots.plot_beer_wordcloud(df_Beer)
-
-    if st.sidebar.button('Scraping'):
+    elif page == 'Scraping':
         scrap.main()
 
 if __name__ == "__main__":
