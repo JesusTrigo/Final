@@ -46,7 +46,7 @@ def plot_beer_wordcloud(df_Beer):
     # Contar cuántas veces aparece cada nombre de cerveza
     beer_counts = df_Beer['beer/name'].value_counts()
     # Cargar una máscara con la forma de una cerveza
-    beer_mask = np.array(Image.open('/app/final/FinalPr/pages/recomend/images/beer.png'))
+    beer_mask = np.array(Image.open('beer.png'))
     # Crear una nube de palabras con la máscara de la cerveza y otras configuraciones
     wordcloud = WordCloud(width=800, height=400, background_color='white', max_words=100, mask=beer_mask, contour_width=3, contour_color='black')
     # Generar la nube de palabras a partir de las frecuencias de los nombres de las cervezas
@@ -59,8 +59,8 @@ def plot_beer_wordcloud(df_Beer):
     ax.axis('off')
     # Asegurarse de que el gráfico se ajuste bien a la figura
     fig.tight_layout()
-    # Mostrar el gráfico
-    st.pyplot(fig)
+    # Mostrar el gráfico utilizando st.image()
+    st.image(wordcloud.to_image())
     
 # Función para crear un gráfico de treemap con los 25 tipos de cerveza más comunes
     
