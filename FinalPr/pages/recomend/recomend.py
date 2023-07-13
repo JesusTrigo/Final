@@ -10,7 +10,7 @@ st.set_option('deprecation.showPyplotGlobalUse', False)
 # Función para cargar los datos desde una URL. Esta función está decorada con st.cache, 
 # lo que significa que los datos solo se descargarán la primera vez que se ejecute la aplicación. 
 # En las ejecuciones subsiguientes, se cargará una versión en caché de los datos.
-@st.cache
+@st.cache_data
 def read_csv_streamlit():
     url = "https://drive.google.com/u/0/uc?id=1ePhuTPZWNkW4Nw634dXxV21fneJRgNWo&export=download&confirm=t&uuid=61491d58-19cc-11ee-be56-0242ac120002"
     df = pd.read_csv(url)
