@@ -66,7 +66,7 @@ def main():
 
     # Upload image
 
-    uploaded_file = st.file_uploader("Selecciona una imagen", type=["jpg", "jpeg", "png"])
+    uploaded_file = st.file_uploader("Seleccione una imagen", type=["jpg", "jpeg", "png"])
 
 
     if uploaded_file is not None:
