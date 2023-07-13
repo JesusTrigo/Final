@@ -3,7 +3,6 @@ import numpy as np
 import pandas as pd
 from datetime import datetime, timedelta
 from time import sleep
-#import datetime
 import requests
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -12,7 +11,6 @@ from bs4 import BeautifulSoup
 from pprint import pprint
 import json
 import re
-#import warnings
 import plotly as plt
 import plotly.express as px
 import seaborn as sns
@@ -145,9 +143,24 @@ def airtable_to_dataframe(BASE_ID, TABLE_ID, API_KEY):
     return df
 
 def main():
-    st.title("Web Scraping con Beautifulsoup Python.")
+    st.title("Web Scraping con Beautifulsoup Python")
     st.write("Seleccione cualquiera de los dos siguientes opciones, En una se hace scraping en la otra no, para la segunda opción se utilizan elementos antes consultados que están en la base de datos. ")
     st.write("La base de datos utilizada es Airtable")
+    st.write("""
+    Esta app ofrece una aplicación dinámica y potente para los amantes del cine que buscan análisis basados en datos de sus películas favoritas. Construido en Streamlit, 
+    el sistema opera en dos modos complementarios para proporcionar visualizaciones de datos enriquecidas y personalizadas.
+    
+    El primer modo de funcionamiento permite al usuario ingresar una palabra clave y seleccionar un número de registros a obtener. 
+    La aplicación, utilizando técnicas de web scraping, busca en tiempo real las películas relacionadas con esa búsqueda y presenta los resultados. 
+    Con estos datos, se generan visualizaciones de datos interactivas que permiten al usuario explorar las tendencias y características de las películas seleccionadas.
+    
+    El segundo modo aprovecha nuestra extensa base de datos previamente construida con información recolectada por web scraping. Si el usuario selecciona una palabra clave de esta base de datos, 
+    la aplicación recupera los datos y genera las visualizaciones de inmediato, sin necesidad de realizar un nuevo web scraping.
+    
+    Una característica inteligente de la aplicación es que, si el usuario ingresa una palabra clave en el primer modo de funcionamiento que ya existe en nuestra base de datos, 
+    la aplicación cambiará automáticamente al segundo modo, mostrando los gráficos generados previamente. Esto optimiza la eficiencia y la velocidad de nuestras visualizaciones, 
+    permitiendo a los usuarios acceder rápidamente a la información que buscan.
+    """)
     ttt = True
     numero = 1
     ban = 0 
@@ -157,10 +170,10 @@ def main():
     boton1 = False
     menu_bus = []
     data_from_airtable = pd.DataFrame(airtable_to_dataframe(BASE_ID, TABLE_ID, API_KEY))    
-    menu_bus = list(set(data_from_airtable["Busqueda"]))    
+    menu_bus = list(set(data_from_airtable["Búsqueda"]))    
     col1, col2 = st.columns(2)
     st.markdown("<hr>", unsafe_allow_html=True)
-    st.write("1. Digite la palabra clave para explorar los datos de las películas mediante scraping.")
+    st.write("1. Ingrese la palabra clave para explorar los datos de las películas mediante web scraping.")
     col1, col2 = st.columns(2)
     with col1:        
         busqueda = st.text_input(label="Busqueda", max_chars = 20, placeholder="Nombre Pelicula", label_visibility="collapsed")
@@ -185,8 +198,8 @@ def main():
         else:
             st.warning(f"No hay Concidencias en la busqueda")
             sys.exit()        
-    st.write(f"2. Seleccione la cantidad máxima de registro a procesar donde el maximo valor que puede tomar es: {numero} Y presione buscar")
-    texto1= "<p style='font-size: small;'>Tenga en cuenta que entre mas registros a consultar mas lento es el proceso y no se debe superar el limite indicado.</p>"
+    st.write(f"2. Seleccione la cantidad máxima de registro a procesar donde el máximo valor que puede tomar es: {numero} Y presione buscar")
+    texto1= "<p style='font-size: small;'>Tenga en cuenta que entre más registros a consultar, más lento es el proceso y no se debe superar el límite indicado.</p>"
     st.write(texto1, unsafe_allow_html=True)
     col111, col222 = st.columns(2)
     with col111:
@@ -195,7 +208,7 @@ def main():
         boton111 = st.button(label="Buscar", key="B11",disabled=ttt)
 
     st.markdown("<hr>", unsafe_allow_html=True)
-    st.write("Seleccione una búsqueda ya realizada para ver sus graficas en esta opción no se hace scraping")
+    st.write("Seleccione una búsqueda ya realizada para ver sus gráficas. En esta opción no se hace scraping")
     col11, col22 = st.columns(2)
     with col11:        
         busqueda1 = st.selectbox("Anteriores_Busquedas", options = menu_bus, label_visibility="collapsed")
@@ -516,7 +529,7 @@ def main():
             fig_pie = px.pie(data_frame = dfselec_copy_genre,
                      names      = dfselec_copy_genre.index,
                      values     = "Género",
-                     title      = "Número de películas por género con ploty")
+                     title      = "Número de películas por género con {select}")
             st.plotly_chart(figure_or_data = fig_pie, use_container_width = True)
         except:
             pass
