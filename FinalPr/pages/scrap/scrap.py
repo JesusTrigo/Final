@@ -18,7 +18,7 @@ import matplotlib.pyplot as plt
 import random
 from airtable import Airtable
 import sys
-
+import plotly.graph_objects as go
 
 
 ####### CONEXIÓN A AIRTABLE #######
@@ -550,17 +550,31 @@ def main():
             pass
         #-----Gráfico 1. Duración / cantidad pelis
         try:
-            fig, ax = plt.subplots(figsize=(8, 4))
-            dfselec_duracion = dfselec.copy()
-            dfselec_duracion = dfselec[dfselec['Duración'] != 0]
-            sns.histplot(data=dfselec_duracion, x='Duración', kde=True, bins=30, color='purple', ax=ax)
-            # Configurar ejes y título
-            ax.set_xlabel('Duración (minutos)', fontsize=12)
-            ax.set_ylabel('Número de películas', fontsize=12)
-            ax.set_title(f'Distribución de duración de películas por {select}', fontsize=14)            
-            st.pyplot(fig)
-        except:
-            pass
+           fig, ax = plt.subplots(figsize=(8, 4))
+           dfselec_duracion = dfselec.copy()
+           dfselec_duracion = dfselec[dfselec['Duración'] != 0]
+           sns.histplot(data=dfselec_duracion, x='Duración', kde=True, bins=30, color='purple', ax=ax)
+    
+           ax.set_xlabel('Duración (minutos)', fontsize=12)
+           ax.set_ylabel('Número de películas', fontsize=12)
+           ax.set_title(f'Distribución de duración de películas por {select}', fontsize=14)
+    
+           st.pyplot(fig)
+    
+           fig_plotly = go.Figure(data=[go.Histogram(x=dfselec_duracion['Duración'], nbinsx=30)])
+
+           fig_plotly.update_layout(
+           title=f'Distribución de duración de películas por {select}',
+           xaxis_title='Duración (minutos)',
+           yaxis_title='Número de películas'
+           )
+           
+           fig_plotly.show()
+
+        except Exception as e:
+           st.error(f"Ocurrió un error: {str(e)}")
+
+
         ###############
 
         ###############
