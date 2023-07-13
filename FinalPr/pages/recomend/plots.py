@@ -41,6 +41,7 @@ def plot_most_common_beer_bar(df_Beer):
     )
     st.plotly_chart(fig) 
         
+
 def plot_beer_wordcloud(df_Beer):
     # Contar cuántas veces aparece cada nombre de cerveza
     beer_counts = df_Beer['beer/name'].value_counts()
@@ -59,8 +60,7 @@ def plot_beer_wordcloud(df_Beer):
     ax.axis('off')
     # Asegurarse de que el gráfico se ajuste bien a la figura
     fig.tight_layout()
-    # Añadir un título al gráfico
-    ax.set_title('Nube de Palabras de Nombres de Cervezas')
+    # Mostrar el gráfico
 
     # Habilitar la opción de zoom
     st.set_option('deprecation.showPyplotGlobalUse', False)
