@@ -536,14 +536,17 @@ def main():
         
         try:
             dfselec_duracion = dfselec.copy()
-            dfselec_duracion['Duración'] = dfselec_duracion['Duración'].dropna()
-            dfselec_duracion = dfselec_duracion.groupby(by=["Duración"])["id"].count().reset_index()          
+            dfselec_duracion = dfselec_duracion[dfselec_duracion['Duración'] > 10]
+            dfselec_duracion = dfselec_duracion.groupby(by=["Duración"])["id"].count().reset_index()
             dfselec_duracion = dfselec_duracion.rename(columns={'id': 'Cantidad'})
-            fig_bar = px.bar(data_frame = dfselec_duracion,
-                        x          = "Duración",
-                        y          = "Cantidad",
-                        title      = f'Distribución de duración de películas con {select}')
-            st.plotly_chart(figure_or_data = fig_bar, use_container_width = True)
+    
+            fig_bar = px.bar(data_frame=dfselec_duracion,
+                             x="Duración",
+                             y="Cantidad",
+                             title=f'Distribución de duración de películas con {select}')
+    
+            st.plotly_chart(figure_or_data=fig_bar, use_container_width=True)
+
         except:
             pass
                    
