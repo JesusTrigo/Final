@@ -45,7 +45,7 @@ import pandas as pd
 #if __name__ == "__main__":
  #  main()
 
-df_Beer = plots.df_Beer
+df_Beer = recomend.df_Beer
 
 def main():
     # Configurando la barra lateral para seleccionar la página
