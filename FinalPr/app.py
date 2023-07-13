@@ -33,6 +33,7 @@ def main():
             plots.plot_abv_beer_style_box(df_Beer)
             plots.plot_3d_scatter_overall_palate_taste(df_Beer)
             plots.plot_beer_wordcloud(df_Beer)
+            plots.plot_3d_graph(df_Beer)
     elif page == 'Scraping':
         scrap.main()
 
