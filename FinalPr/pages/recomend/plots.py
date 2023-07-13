@@ -35,8 +35,8 @@ def plot_most_common_beer_bar(df_Beer):
     )])
     fig.update_layout(
         title="25 tipos de cerveza más comunes",
-        xaxis_title="Tipo de cerveza",
-        yaxis_title="Cantidad",
+        xaxis_title="Cantidad",
+        yaxis_title="Tipo de cerveza",
         template='plotly_white'
     )
     st.plotly_chart(fig)
