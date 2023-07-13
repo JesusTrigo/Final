@@ -166,7 +166,7 @@ def plot_abv_beer_style_box(df_Beer):
     # Mostrar el gráfico interactivo en Streamlit
     st.plotly_chart(fig)
     
-def plot_3d_scatter_overall_palate_taste(df_Beer):
+def plot_3d_scatter_aroma_palate_abv(df_Beer):
     # Obtener los 10 estilos de cerveza más comunes
     top_10_beer_styles = df_Beer['beer/style'].value_counts().index[:10]
     df_top_10 = df_Beer[df_Beer['beer/style'].isin(top_10_beer_styles)]
