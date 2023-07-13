@@ -7,8 +7,8 @@ import random
 # Desactivar advertencias de desaprobación de Streamlit
 st.set_option('deprecation.showPyplotGlobalUse', False)
 
-# Función para cargar los datos desde una URL. Esta función está decorada con st.cache, 
-# lo que significa que los datos solo se descargarán la primera vez que se ejecute la aplicación. 
+# Función para cargar los datos desde una URL. Esta función está decorada con st.cache_data
+
 # En las ejecuciones subsiguientes, se cargará una versión en caché de los datos.
 @st.cache_data
 def read_csv_streamlit():
@@ -19,8 +19,6 @@ def read_csv_streamlit():
 df_Beer = read_csv_streamlit()
 
 def main():
-    # Cargamos los datos de la cerveza
-    #df_Beer = read_csv_streamlit()
 
     # Mostramos un avance de los datos en la interfaz de usuario
     df_display = df_Beer.head()
