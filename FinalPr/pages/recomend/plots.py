@@ -61,6 +61,9 @@ def plot_beer_wordcloud(df_Beer):
     fig.tight_layout()
     # Añadir un título al gráfico
     ax.set_title('Nube de Palabras de Nombres de Cervezas')
+
+    # Establecer la opción de deprecación para evitar errores al guardar la figura
+    st.set_option('deprecation.showPyplotGlobalUse', False)
     # Mostrar el gráfico en Streamlit
     st.pyplot(fig)
         
