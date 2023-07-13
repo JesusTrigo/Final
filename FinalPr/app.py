@@ -25,14 +25,14 @@ def main():
             plots.intro()
             plots.get_top_25_beer_styles(df_Beer)
             plots.plot_most_common_beer_bar(df_Beer)
-            plots.plot_beer_wordcloud(df_Beer)
-            plots.plot_most_common_beer_treemap(df_Beer)
             plots.plot_most_reviewed_beers(df_Beer)
             plots.plot_sentiment_distribution(df_Beer)
+            plots.plot_most_common_beer_treemap(df_Beer)
             plots.plot_review_features_correlation(df_Beer)
             plots.plot_sentiment_beer_style_bubble(df_Beer)
             plots.plot_abv_beer_style_box(df_Beer)
             plots.plot_3d_scatter_overall_palate_taste(df_Beer)
+            plots.plot_beer_wordcloud(df_Beer)
     elif page == 'Scraping':
         scrap.main()
 
