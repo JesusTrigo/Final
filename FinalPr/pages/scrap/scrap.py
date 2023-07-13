@@ -585,17 +585,6 @@ def main():
         except:
             pass
 
-        try:
-            plt.clf()
-            dfselec_dur_2 = dfselec[dfselec['Duración'] != 0]
-            plt.scatter(dfselec_dur_2['Duración'], dfselec_dur_2['Rating'])
-            plt.xlabel('Duración')
-            plt.ylabel('Rating')
-            plt.title(f'Relación entre el rating y la duración de películas {select}')
-            st.pyplot(plt.gcf())
-
-        except:
-            pass
 
         #-----Gráfico 3. Reseñas usuarios / críticos
 
@@ -690,48 +679,11 @@ def main():
             plt.figure(figsize=(10, 10))
             plt.pie(num_peliculas, labels=nombres_directores)
             plt.title(f'Top 20 directores por número de películas dirigidas con {select}')
-            #plt.show()
             st.pyplot(plt)
         except:
             pass
 
-        try:
-            plt.clf()
-            dfselec_copy_dir = dfselec.copy()
-            dfselec_copy_dir['Director'] = dfselec_copy_dir['Director'].str.split(', ')
-            dfselec_copy_dir = dfselec_copy_dir.dropna(subset=['Director'])
-            directores_unicos = set()
-            for lista_directores in dfselec_copy_dir['Director']:
-                for director in lista_directores:
-                    directores_unicos.add(director)
-               
-            # Crear un diccionario para contar el número de películas dirigidas por cada director
-            peliculas_por_director = {}
-            for director in directores_unicos:
-                peliculas_por_director[director] = 0
-               
-            for lista_directores in dfselec_copy_dir['Director']:
-                for director in lista_directores:
-                    peliculas_por_director[director] += 1
-               
-            # Crear una lista de pares (director, número de películas) ordenada por el número de películas
-            peliculas_por_director = [(k, v) for k, v in peliculas_por_director.items()]
-            peliculas_por_director.sort(key=lambda x: x[1], reverse=True)
-               
-            # Tomar los 20 primeros directores (mayor número de películas dirigidas)
-            top_directores = peliculas_por_director[:20]
-            nombres_directores = [x[0] for x in top_directores]
-            num_peliculas = [x[1] for x in top_directores]
-               
-            # Graficar los resultados usando Matplotlib
-            plt.figure(figsize=(10, 10))
-            plt.pie(num_peliculas, labels=nombres_directores)
-            plt.title(f'Top 20 directores por número de películas dirigidas con {select}')
-               
-            st.pyplot(plt.gcf())
- 
-        except:
-            pass
+
         #-----Gráfico 8. Películas por género
         try:
             plt.clf()
@@ -744,7 +696,6 @@ def main():
             sns.countplot(x='Género', data=dfselec_copy_genre)
             plt.xticks(rotation=90)
             plt.title("Número de películas por género")
-            #plt.show()
             st.pyplot(plt)
         except:
             pass
@@ -755,7 +706,6 @@ def main():
             corr = dfselec.corr()
             sns.heatmap(corr, annot=True, cmap="inferno")
             plt.title("Correlación entre variables numéricas")
-            #plt.show()
             st.pyplot(plt)
         except:
             pass
@@ -766,7 +716,6 @@ def main():
             sns.countplot(x="Clasificación", data=dfselec)
             plt.xticks(rotation=90)
             plt.title("Conteo de películas por clasificación")
-            #plt.show()
             st.pyplot(plt)
         except:
             pass
@@ -797,7 +746,6 @@ def main():
             plt.xticks(rotation=90)
             plt.xlabel("Género")
             plt.title("Películas con más premios ganados por género")
-            #plt.show()
             st.pyplot(plt)
         except:
             pass
@@ -810,7 +758,6 @@ def main():
                         title="Top 10 Géneros por Rating",
                         labels={"genre": "Género", "Rating": "Rating", "Año": "Año"},
                         hover_data=["Título", "genre", "Rating"])
-            #fig.show()
             st.pyplot(fig)
         except:
             pass
@@ -831,7 +778,6 @@ def main():
 
             fig.update_traces(hovertemplate='<b>%{label}</b><br>Reseñas: %{value}')
 
-            #fig.show()
             st.pyplot(fig)
         except:
             pass
@@ -841,7 +787,7 @@ def main():
         try:
             plt.clf()
             sns.pairplot(dfselec, hue = "Nominaciones")
-            #plt.show()
+            plt.title(f'Pairplot nominaciones de {select}')
             st.pyplot(plt)
         except:
             pass
