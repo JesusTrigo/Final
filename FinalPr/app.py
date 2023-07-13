@@ -2,7 +2,7 @@ import streamlit as st
 import home
 from pages.detection import detection
 from pages.recomend import recomend
-from pages.recomend import plots, df_Beer
+from pages.recomend import plots
 #from pages.scrap import home
 import pandas as pd
 from pages.recomend.plots import (
@@ -62,16 +62,16 @@ def main():
         if recomend_option == 'Código':
             recomend.main()
         elif recomend_option == 'Gráficos':
-            get_top_25_beer_styles(df_Beer)
-            plot_most_common_beer_bar(df_Beer)
-            plot_most_common_beer_treemap(df_Beer)
-            plot_beer_wordcloud(df_Beer)
-            plot_sentiment_distribution(df_Beer)
-            plot_review_features_correlation(df_Beer)
-            plot_most_reviewed_beers(df_Beer)
-            plot_sentiment_beer_style_bubble(df_Beer)
+            get_top_25_beer_styles(plots.df_Beer)
+            plot_most_common_beer_bar(plots.df_Beer)
+            plot_most_common_beer_treemap(plots.df_Beer)
+            plot_beer_wordcloud(plots.df_Beer)
+            plot_sentiment_distribution(plots.df_Beer)
+            plot_review_features_correlation(plots.df_Beer)
+            plot_most_reviewed_beers(plots.df_Beer)
+            plot_sentiment_beer_style_bubble(plots.df_Beer)
             plot_abv_beer_style_box(df_Beer)
-            plot_3d_scatter_overall_palate_taste(df_Beer)
+            plot_3d_scatter_overall_palate_taste(plots.df_Beer)
     elif page == 'Scraping':
         home.main()
 
