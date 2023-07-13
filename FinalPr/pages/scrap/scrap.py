@@ -169,7 +169,7 @@ def main():
     
     - Espere por favor
 
-    Le rogamos paciencia, pues entre selección y selección el proceso demora unos segundos debido a la gran cantidad de datos a manejar, gracias.
+    Le rogamos paciencia, el proceso puede demorar unos segundos debido a la gran cantidad de datos a manejar, gracias.
     """)
     ttt = True
     numero = 1
