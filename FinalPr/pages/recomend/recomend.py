@@ -11,26 +11,14 @@ st.set_option('deprecation.showPyplotGlobalUse', False)
 # lo que significa que los datos solo se descargarán la primera vez que se ejecute la aplicación. 
 # En las ejecuciones subsiguientes, se cargará una versión en caché de los datos.
 @st.cache
-#def read_csv_streamlit():
-    #url = "https://drive.google.com/u/0/uc?id=1ePhuTPZWNkW4Nw634dXxV21fneJRgNWo&export=download&confirm=t&uuid=61491d58-19cc-11ee-be56-0242ac120002"
-    #df = pd.read_csv(url)
-    #return df
-    
-#df_Beer = read_csv_streamlit()
-
 def read_csv_streamlit():
     url = "https://drive.google.com/u/0/uc?id=1ePhuTPZWNkW4Nw634dXxV21fneJRgNWo&export=download&confirm=t&uuid=61491d58-19cc-11ee-be56-0242ac120002"
     df = pd.read_csv(url)
     return df
-
-def get_df_Beer():
-    global df_Beer
-    if df_Beer is None:
-        df_Beer = read_csv_streamlit()
-    return df_Beer
+    
+df_Beer = read_csv_streamlit()
 
 def main():
-    df_Beer = get_df_Beer()
     # Cargamos los datos de la cerveza
     #df_Beer = read_csv_streamlit()
 
