@@ -187,23 +187,4 @@ def plot_beer_wordcloud(df_Beer):
     fig.tight_layout()
     # Mostrar el gráfico utilizando st.image()
     st.image(wordcloud.to_image())
-
-def plot_3d_mesh(df):
-    fig = go.Figure(data=go.Mesh3d(
-        x=df['review/overall'],
-        y=df['review/palate'],
-        z=df['review/taste'],
-        color=df['beer/style'],
-        opacity=0.8
-    ))
-
-    fig.update_layout(
-        title='Relación entre Calificación General, Paladar y Sabor',
-        scene=dict(
-            xaxis=dict(title='Calificación General'),
-            yaxis=dict(title='Paladar'),
-            zaxis=dict(title='Sabor')
-        )
-    )
-
-    fig.show()
+    
