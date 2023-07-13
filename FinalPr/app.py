@@ -7,9 +7,9 @@ from pages.scrap import scrap
 df_Beer = recomend.df_Beer
 
 def main():
-    # Configurando el selectbox para seleccionar la página
+    # Configurando el radio para seleccionar la página
     st.title('Selector de Páginas')
-    page = st.selectbox('Seleccione una página', options=['Home', 'Detección', 'Recomendación', 'Scraping'])
+    page = st.radio('Seleccione una página', options=['Home', 'Detección', 'Recomendación', 'Scraping'])
 
     # Dependiendo de la página seleccionada, mostrar el contenido correspondiente
     if page == 'Home':
@@ -18,7 +18,7 @@ def main():
         detection.main()
     elif page == 'Recomendación':
         st.title('Selector de Recomendación') # Nuevo título para la sub-selección
-        recomend_option = st.selectbox('Seleccione una opción', options=['App', 'Gráficos']) # Nuevo selectbox para sub-selección
+        recomend_option = st.radio('Seleccione una opción', options=['App', 'Gráficos']) # Nuevo radio para sub-selección
         if recomend_option == 'App':
             recomend.main()
         elif recomend_option == 'Gráficos':
