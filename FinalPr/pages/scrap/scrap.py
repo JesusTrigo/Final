@@ -143,7 +143,7 @@ def airtable_to_dataframe(BASE_ID, TABLE_ID, API_KEY):
     return df
 
 def main():
-    st.title("Web Scraping con Beautifulsoup Python")
+    st.title("Web Scraping con Beautifulsoup")
     st.write("Seleccione cualquiera de los dos siguientes opciones, En una se hace scraping en la otra no, para la segunda opción se utilizan elementos antes consultados que están en la base de datos. ")
     st.write("La base de datos utilizada es Airtable")
     st.write("""
