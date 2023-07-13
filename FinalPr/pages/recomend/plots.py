@@ -11,7 +11,7 @@ import pandas as pd
 
 
 def intro():
-    st.subheader("Gráficos recomendador de cervezas")
+    st.header("Gráficos recomendador de cervezas")
     st.write("""
     A continuación de muestran una serie de gráficos que relacionan diversas variables de la base de datos
     """)
