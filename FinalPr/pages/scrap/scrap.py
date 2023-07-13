@@ -627,7 +627,7 @@ def main():
                
             st.pyplot(plt.gcf())
            
-         except:
+        except:
             pass
 
         #-----Gráfico 4. Idioma
