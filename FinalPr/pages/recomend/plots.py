@@ -25,23 +25,23 @@ def get_top_25_beer_styles(df_Beer):
     
         
  # Función para crear un gráfico de barras con los 25 tipos de cerveza más comunes
-def plot_most_common_beer_bar(df_Beer):
-    # Contar cuántas veces aparece cada tipo de cerveza y seleccionar los 25 primeros
-    beer_counts = df_Beer['beer/style'].value_counts().nlargest(25)
-        
-    # Crear la figura del gráfico de barras
-    fig = go.Figure(data=[go.Bar(
-        x=beer_counts.values,
-        y=beer_counts.index,
-        orientation='h'
-    )])
-    fig.update_layout(
-        title="25 tipos de cerveza más comunes",
-        xaxis_title="Tipo de cerveza",
-        yaxis_title="Cantidad",
-        template='plotly_white'
-    )
-    st.plotly_chart(fig)
+def plot_beer_wordcloud(df_Beer):
+    # Contar cuántas veces aparece cada nombre de cerveza
+    beer_counts = df_Beer['beer/name'].value_counts()
+    # Cargar una máscara con la forma de una cerveza
+    beer_mask = np.array(Image.open('/app/final/FinalPr/pages/recomend/images/beer.png'))
+    # Crear una nube de palabras con la máscara de la cerveza y otras configuraciones
+    wordcloud = WordCloud(width=800, height=400, background_color='white', max_words=100, mask=beer_mask, contour_width=3, contour_color='black')
+    # Generar la nube de palabras a partir de las frecuencias de los nombres de las cervezas
+    wordcloud.generate_from_frequencies(beer_counts)
+    # Mostrar la nube de palabras utilizando Streamlit
+    st.image(wordcloud.to_image())
+    
+    # Añadir un título al gráfico
+    plt.title('Nube de palabras de nombres de cervezas')
+    plt.axis('off')
+    # Mostrar el gráfico
+    st.pyplot(plt.gcf())
         
 # Función para crear un gráfico de treemap con los 25 tipos de cerveza más comunes
     
