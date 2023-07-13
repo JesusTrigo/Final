@@ -6,7 +6,7 @@ from PIL import Image
 
 def main():
     st.title("Proyecto de Data Science")
-    image = Image.open("app/final/FinalPr/images/hackaboss.png")
+    image = Image.open('/app/final/FinalPr/images/hackaboss.png')
     st.image(image = image, use_column_width = True)
        
     st.markdown("""
