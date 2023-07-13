@@ -46,8 +46,7 @@ def main():
     Esto implica tomar un modelo preentrenado y adaptarlo a nuestras necesidades específicas, lo que nos permite beneficiarnos del aprendizaje previo del modelo y ahorrar en recursos de entrenamiento.
     """)
     
-    st.write("El algoritmo está entrenado con las siguientes imágenes
-    "")
+    st.write("El algoritmo está entrenado con las siguientes imágenes")
     col1, col2, col3 = st.columns(3)
     col1.header("")
     col2.header("")
