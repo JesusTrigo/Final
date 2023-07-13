@@ -8,7 +8,6 @@ import pandas as pd
 from pages.recomend.plots import (
     get_top_25_beer_styles,
     plot_most_common_beer_bar,
-    plot_malla,
     plot_most_common_beer_treemap,
     plot_beer_wordcloud,
     plot_sentiment_distribution,
@@ -65,7 +64,6 @@ def main():
         elif recomend_option == 'Gráficos':
             get_top_25_beer_styles(df_Beer)
             plot_most_common_beer_bar(df_Beer)
-            plot_malla(df_Beer)
             plot_most_common_beer_treemap(df_Beer)
             plot_beer_wordcloud(df_Beer)
             plot_sentiment_distribution(df_Beer)
