@@ -168,6 +168,8 @@ def main():
     - Segundo input: ingrese el número de registros y haga submit
     
     - Vuelva a hacer submit en el primer input
+
+    Le rogamos paciencia, pues entre selección y selección el proceso demora unos segundos debido a la gran cantidad de datos a manejar, gracias.
     """)
     ttt = True
     numero = 1
