@@ -213,3 +213,4 @@ def plot_3d_mesh(df_Beer):
 
     # Mostrar el gráfico en Streamlit
     st.pyplot(fig)
+    
