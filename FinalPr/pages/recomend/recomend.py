@@ -112,14 +112,8 @@ def main():
         st.markdown(
             f'Según tus preferencias, la recomendación por _Estilo de Cerveza_ que debes probar es:<br><b>{recommended_beer}</b> '
             f'<br><br>La _Cerveza_ recomendada es:<br><b>{highest_rated_beer}</b>.',
-Aquí está la continuación del código anterior (el código era demasiado largo para caber en una sola respuesta):
-
-```python
             unsafe_allow_html=True
         )
-
-    # Mostramos un gráfico de las cervezas más comunes
-    plots.plot_most_common_beer_bar(df_Beer)
 
 if __name__ == "__main__":
     main()
