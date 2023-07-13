@@ -58,15 +58,18 @@ def plot_beer_wordcloud(df_Beer):
     ax.imshow(wordcloud, interpolation='bilinear')
     # Quitar los ejes
     ax.axis('off')
+    # Mostrar la nube de palabras
+    ax.imshow(wordcloud, interpolation='bilinear')
+    # Quitar los ejes
+    ax.axis('off')
+    
+    # Habilitar el zoom
+    mplcursors.cursor().connect("zoom", lambda _: None)
+    
     # Asegurarse de que el gráfico se ajuste bien a la figura
     fig.tight_layout()
     # Mostrar el gráfico
-
-    # Habilitar la opción de zoom
-    st.set_option('deprecation.showPyplotGlobalUse', False)
-    
-    # Mostrar el gráfico en Streamlit con la capacidad de hacer zoom
-    st.pyplot(fig, use_column_width=True, zoom=3)
+    st.pyplot(fig)
         
 # Función para crear un gráfico de treemap con los 25 tipos de cerveza más comunes
     
