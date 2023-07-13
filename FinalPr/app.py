@@ -25,7 +25,7 @@ def main():
             plots.intro()
             plots.get_top_25_beer_styles(df_Beer)
             plots.plot_most_common_beer_bar(df_Beer)
-            #plots.plot_beer_wordcloud(df_Beer)
+            plots.plot_beer_wordcloud(df_Beer)
             plots.plot_most_common_beer_treemap(df_Beer)
             plots.plot_sentiment_distribution(df_Beer)
             plots.plot_review_features_correlation(df_Beer)
