@@ -158,6 +158,12 @@ def main():
     Una característica inteligente de la aplicación es que, si el usuario ingresa una palabra clave en el primer modo de funcionamiento que ya existe en nuestra base de datos, 
     la aplicación cambiará automáticamente al segundo modo, mostrando los gráficos generados previamente. Esto optimiza la eficiencia y la velocidad de nuestras visualizaciones, 
     permitiendo a los usuarios acceder rápidamente a la información que buscan.
+
+    ¿Cómo funciona?
+    Si elige la opción 1:
+    En el primer input, ingrese la palabra clavevy haga submit
+    En el segundo input, ingrese el número de registros y haga submit
+    Vuelva a hacer submit en el primer input
     """)
     ttt = True
     numero = 1
