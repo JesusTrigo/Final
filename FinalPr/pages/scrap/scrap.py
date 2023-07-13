@@ -144,8 +144,6 @@ def airtable_to_dataframe(BASE_ID, TABLE_ID, API_KEY):
 
 def main():
     st.title("Web Scraping con Beautifulsoup")
-    st.write("Seleccione cualquiera de los dos siguientes opciones, En una se hace scraping en la otra no, para la segunda opción se utilizan elementos antes consultados que están en la base de datos. ")
-    st.write("La base de datos utilizada es Airtable")
     st.write("""
     Esta app ofrece una aplicación dinámica y potente para los amantes del cine que buscan análisis basados en datos de sus películas favoritas. Construido en Streamlit, 
     el sistema opera en dos modos complementarios para proporcionar visualizaciones de datos enriquecidas y personalizadas.
@@ -154,7 +152,7 @@ def main():
     La aplicación, utilizando técnicas de web scraping, busca en tiempo real las películas relacionadas con esa búsqueda y presenta los resultados. 
     Con estos datos, se generan visualizaciones de datos interactivas que permiten al usuario explorar las tendencias y características de las películas seleccionadas.
     
-    El segundo modo aprovecha nuestra extensa base de datos previamente construida con información recolectada por web scraping. Si el usuario selecciona una palabra clave de esta base de datos, 
+    El segundo modo aprovecha nuestra extensa base de datos, la cual se encuentra alojada en Airtable, previamente construida con información recolectada por web scraping. Si el usuario selecciona una palabra clave de esta base de datos, 
     la aplicación recupera los datos y genera las visualizaciones de inmediato, sin necesidad de realizar un nuevo web scraping.
     
     Una característica inteligente de la aplicación es que, si el usuario ingresa una palabra clave en el primer modo de funcionamiento que ya existe en nuestra base de datos, 
@@ -548,6 +546,7 @@ def main():
             st.plotly_chart(figure_or_data = fig_bar, use_container_width = True)
         except:
             pass
+                   
         #-----Gráfico 1. Duración / cantidad pelis
         try:
             fig, ax = plt.subplots(figsize=(8, 4))
@@ -574,10 +573,6 @@ def main():
         except:
             pass
 
-
-        ###############
-
-        ###############
         #-----Gráfico 2. Duración / rating
         try:  
             plt.clf()
@@ -587,6 +582,18 @@ def main():
             plt.ylabel('Rating')
             plt.title(f'Relación entre el rating y la duración de películas {select}')
             st.pyplot(plt)
+        except:
+            pass
+
+        try:
+            plt.clf()
+            dfselec_dur_2 = dfselec[dfselec['Duración'] != 0]
+            plt.scatter(dfselec_dur_2['Duración'], dfselec_dur_2['Rating'])
+            plt.xlabel('Duración')
+            plt.ylabel('Rating')
+            plt.title(f'Relación entre el rating y la duración de películas {select}')
+            st.pyplot(plt.gcf())
+
         except:
             pass
 
@@ -607,6 +614,21 @@ def main():
             st.pyplot(plt)
         except:
             pass
+        try:
+            plt.clf()
+            df_critica = dfselec[dfselec['Reseñas Usuarios'].notnull() & dfselec['Reseñas Críticos'].notnull()]
+            df_critica = df_critica.replace('Sin datos', pd.NaT)
+            # Elimina las filas que contienen NaN
+            df_critica = df_critica.dropna()
+            # Agrupa las películas por clasificación y calcula el promedio de rating y críticas de usuarios y críticos
+            grouped = df_critica.groupby('Clasificación').agg({'Rating': 'mean', 'Reseñas Usuarios': 'mean', 'Reseñas Críticos': 'mean'})
+            # Grafica las barras para las críticas de usuarios y críticos por clasificación
+            grouped[['Reseñas Usuarios', 'Reseñas Críticos']].plot(kind='bar', stacked=True)
+               
+            st.pyplot(plt.gcf())
+           
+         except:
+            pass
 
         #-----Gráfico 4. Idioma
         try:
@@ -626,30 +648,32 @@ def main():
         try:
             plt.clf()
             rr = []
-            temm = [ x for x in dfselec["Género"] ]
+            temm = [x for x in dfselec["Género"]]
             for x in temm:
                 tt = str(x).split(",")
                 for y in tt:
-                    rr.append(y.strip())    
+                    rr.append(y.strip())
             serie = pd.Series(rr)
-            serie.value_counts()
-            sns.barplot(y =  serie, x = serie.index)
-            plt.title(f'Relación de Géneros de peliculas con {select}')
-            #plt.show()
-            st.pyplot(plt)
-        except:
+            counts = serie.value_counts()
+            sns.barplot(y=counts.index, x=counts)
+            plt.title(f'Relación de Géneros de películas con {select}')
+    
+            st.pyplot(plt.gcf())
+
+        except: 
             pass
 
 
         #-----Gráfico 6. Top 20 nominaciones
         try:
             plt.clf()
-            dfselec_nomi = dfselec[dfselec["Nominaciones"] > 0][["Título","Nominaciones"]]
-            top20 = dfselec_nomi.nlargest(20, "Nominaciones") # Obtener top 20 películas
-            sns.barplot(y = "Título", x = "Nominaciones", data = top20)
+            dfselec_nomi = dfselec[dfselec["Nominaciones"] > 0][["Título", "Nominaciones"]]
+            top20 = dfselec_nomi.nlargest(20, "Nominaciones")  # Obtener top 20 películas
+            sns.barplot(y="Título", x="Nominaciones", data=top20)
             plt.title(f'Top 20 de películas por número de nominaciones con {select}')
-            #plt.show()
-            st.pyplot(plt)
+    
+            st.pyplot(plt.gcf())
+
         except:
             pass
 
@@ -687,6 +711,43 @@ def main():
         except:
             pass
 
+        try:
+            plt.clf()
+            dfselec_copy_dir = dfselec.copy()
+            dfselec_copy_dir['Director'] = dfselec_copy_dir['Director'].str.split(', ')
+            dfselec_copy_dir = dfselec_copy_dir.dropna(subset=['Director'])
+            directores_unicos = set()
+            for lista_directores in dfselec_copy_dir['Director']:
+                for director in lista_directores:
+                    directores_unicos.add(director)
+               
+            # Crear un diccionario para contar el número de películas dirigidas por cada director
+            peliculas_por_director = {}
+            for director in directores_unicos:
+                peliculas_por_director[director] = 0
+               
+            for lista_directores in dfselec_copy_dir['Director']:
+                for director in lista_directores:
+                    peliculas_por_director[director] += 1
+               
+            # Crear una lista de pares (director, número de películas) ordenada por el número de películas
+            peliculas_por_director = [(k, v) for k, v in peliculas_por_director.items()]
+            peliculas_por_director.sort(key=lambda x: x[1], reverse=True)
+               
+            # Tomar los 20 primeros directores (mayor número de películas dirigidas)
+            top_directores = peliculas_por_director[:20]
+            nombres_directores = [x[0] for x in top_directores]
+            num_peliculas = [x[1] for x in top_directores]
+               
+            # Graficar los resultados usando Matplotlib
+            plt.figure(figsize=(10, 10))
+            plt.pie(num_peliculas, labels=nombres_directores)
+            plt.title(f'Top 20 directores por número de películas dirigidas con {select}')
+               
+            st.pyplot(plt.gcf())
+ 
+        except:
+            pass
         #-----Gráfico 8. Películas por género
         try:
             plt.clf()
