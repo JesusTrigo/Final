@@ -17,13 +17,11 @@ def main():
     elif page == 'Detección':
         detection.main()
     elif page == 'Recomendación':
-        st.subheader('Recomendación')
-        st.write('Seleccione una opción:')
-        selected_option = st.radio('', ('recomend.py', 'plots.py'))
-        
-        if selected_option == 'recomend.py':
+        st.sidebar.title('Selector de Recomendación') # Nuevo título para la sub-selección
+        recomend_option = st.sidebar.selectbox('Seleccione una opción', options=['App', 'Gráficos']) # Nuevo selectbox para sub-selección
+        if recomend_option == 'App':
             recomend.main()
-        elif selected_option == 'plots.py':
+        elif recomend_option == 'Gráficos':
             plots.intro()
             plots.get_top_25_beer_styles(df_Beer)
             plots.plot_most_common_beer_bar(df_Beer)
