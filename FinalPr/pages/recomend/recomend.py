@@ -8,8 +8,8 @@ import random
 st.set_option('deprecation.showPyplotGlobalUse', False)
 
 # Función para cargar los datos desde una URL. Esta función está decorada con st.cache_data
-
 # En las ejecuciones subsiguientes, se cargará una versión en caché de los datos.
+
 @st.cache_data
 def read_csv_streamlit():
     url = "https://drive.google.com/u/0/uc?id=1ePhuTPZWNkW4Nw634dXxV21fneJRgNWo&export=download&confirm=t&uuid=61491d58-19cc-11ee-be56-0242ac120002"
@@ -19,6 +19,21 @@ def read_csv_streamlit():
 df_Beer = read_csv_streamlit()
 
 def main():
+
+     # Imprimimos mensajes en la interfaz de usuario
+    st.title("Recomendador Inteligente de Cervezas")
+    st.write("""
+    Este proyecto se centra en la creación de un sistema de recomendación personalizado para los amantes de la cerveza. 
+    Este sistema utiliza técnicas de aprendizaje automático para analizar tus preferencias de cerveza y generar recomendaciones que se alinean con tus gustos individuales.
+    
+    Para empezar, los usuarios seleccionan cinco tipos de cerveza que han probado previamente y proporcionan calificaciones para cada una de ellas. 
+    Esta información inicial nos ayuda a entender las preferencias del usuario y a construir su perfil de sabor.
+    
+    Posteriormente, nuestro algoritmo compara este perfil de sabor con nuestra base de datos de cientos de miles de reseñas de cervezas proporcionadas por otros usuarios. 
+    Al considerar las similitudes en las preferencias de cerveza entre los usuarios, nuestro sistema puede identificar y sugerir nuevas cervezas que el usuario probablemente disfrutará.
+    """)
+    st.subheader("El proceso demora unos segundos debido a la cantidad de datos, gracias por su paciencia")
+    st.write(' ')
 
     # Mostramos un avance de los datos en la interfaz de usuario
     df_display = df_Beer.head()
@@ -35,12 +50,6 @@ def main():
 
     # Obtenemos una lista de todas las cervezas
     all_beers = matriz_df.columns.tolist()
-
-    # Imprimimos mensajes en la interfaz de usuario
-    st.title("¡Hola! Vamos a recomendarte una cerveza según tus gustos previos...")
-    st.write(' ')
-    st.subheader("El proceso demora unos segundos debido a la cantidad de datos, gracias por su paciencia")
-    st.write(' ')
 
     # Preparamos las opciones para la selección de cerveza
     beer_choices = ["Selecciona una cerveza..."] + all_beers
