@@ -31,6 +31,9 @@ def main():
     
     Posteriormente, nuestro algoritmo compara este perfil de sabor con nuestra base de datos de cientos de miles de reseñas de cervezas proporcionadas por otros usuarios. 
     Al considerar las similitudes en las preferencias de cerveza entre los usuarios, nuestro sistema puede identificar y sugerir nuevas cervezas que el usuario probablemente disfrutará.
+
+    Lo más destacado de este código es cómo se maneja la selección de la cerveza recomendada. En lugar de simplemente elegir la cerveza con la puntuación más alta, 
+    selecciona al azar una de las cinco cervezas con mayor puntuación. Esto se hace para introducir variedad en las recomendaciones.
     """)
     st.write(' ')
 
