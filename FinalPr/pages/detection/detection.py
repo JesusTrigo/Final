@@ -48,7 +48,7 @@ def main():
     
     st.write("El algoritmo está entrenado con las siguientes imágenes:")
     col1, col2, col3 = st.columns(3)
-    col1.header("")
+    #col1.header("")
     col2.header("")
     col3.header("")
     st.header("")
