@@ -65,7 +65,7 @@ def main():
             get_top_25_beer_styles(df_Beer)
             plot_most_common_beer_bar(df_Beer)
             plot_most_common_beer_treemap(df_Beer)
-            plot_beer_wordcloud(df_Beer, './pages/recomend/images/beer.png')
+            plot_beer_wordcloud(df_Beer)
             plot_sentiment_distribution(df_Beer)
             plot_review_features_correlation(df_Beer)
             plot_most_reviewed_beers(df_Beer)
