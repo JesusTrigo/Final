@@ -1,41 +1,27 @@
-### HACK A BOSS ###
-### BOOTCAMP DATA SCIENCE - dsb02rt ### 
-### PROYECTO 1 ### 
-### GRUPO D ### 
-### RAFAEL BALLESTEROS, JESÚS TRIGO, JULIO MENDOZA ### 
-
-### NOTA ###
-### Para hacer prueba sin web scrapping, escribir la palabra matrix ###
-import sys
-####### IMPORT #######
-
+import streamlit as st
 import numpy as np
 import pandas as pd
 from datetime import datetime, timedelta
 from time import sleep
-import datetime
+#import datetime
 import requests
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from webdriver_manager.chrome import ChromeDriverManager
 from bs4 import BeautifulSoup
-#import helium
 from pprint import pprint
 import json
 import re
-import warnings
+#import warnings
 import plotly as plt
 import plotly.express as px
 import seaborn as sns
 import matplotlib.pyplot as plt
 import random
-from airtable import Airtable # para las funciones de Airtable
-import streamlit as st
+from airtable import
+import sys
 
 
-
-
-    
 
 ####### CONEXIÓN A AIRTABLE #######
 
