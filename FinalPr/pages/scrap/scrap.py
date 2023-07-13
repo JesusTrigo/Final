@@ -569,10 +569,10 @@ def main():
             yaxis_title='Número de películas'
             )
            
-            fig_plotly.show()
+            st.plotly_chart(fig_plotly)
 
-        except Exception as e:
-            st.error(f"Ocurrió un error: {str(e)}")
+        except
+            pass
 
 
         ###############
