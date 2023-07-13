@@ -32,13 +32,13 @@ def main():
     Posteriormente, nuestro algoritmo compara este perfil de sabor con nuestra base de datos de cientos de miles de reseñas de cervezas proporcionadas por otros usuarios. 
     Al considerar las similitudes en las preferencias de cerveza entre los usuarios, nuestro sistema puede identificar y sugerir nuevas cervezas que el usuario probablemente disfrutará.
     """)
-    st.subheader("El proceso demora unos segundos debido a la cantidad de datos, gracias por su paciencia")
     st.write(' ')
 
     # Mostramos un avance de los datos en la interfaz de usuario
     df_display = df_Beer.head()
     st.subheader("Vista previa del DataFrame:")
     st.write(df_display)
+    st.write(' ')
 
     # Creamos una tabla pivote de los datos
     matriz_df = df_Beer.pivot_table(
