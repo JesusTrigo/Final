@@ -787,7 +787,7 @@ def main():
         try:
             plt.clf()
             sns.pairplot(dfselec, hue = "Nominaciones")
-            plt.title(f'Pairplot nominaciones de {select}')
+            plt.suptitle(f'Matriz de gráficos de dispersión con Nominaciones de: {select}')
             st.pyplot(plt)
         except:
             pass
