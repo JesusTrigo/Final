@@ -70,7 +70,7 @@ def main():
             plots.plot_review_features_correlation(plots.df_Beer)
             plots.plot_most_reviewed_beers(plots.df_Beer)
             plots.plot_sentiment_beer_style_bubble(plots.df_Beer)
-            plots.plot_abv_beer_style_box(df_Beer)
+            plots.plot_abv_beer_style_box(plots.df_Beer)
             plots.plot_3d_scatter_overall_palate_taste(plots.df_Beer)
     elif page == 'Scraping':
         home.main()
