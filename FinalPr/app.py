@@ -18,8 +18,8 @@ def main():
         detection.main()
     elif page == 'Recomendación':
         st.sidebar.title('Selector de Recomendación') # Nuevo título para la sub-selección
-        recomend_option = st.sidebar.selectbox('Seleccione una opción', options=['Código', 'Gráficos']) # Nuevo selectbox para sub-selección
-        if recomend_option == 'Código':
+        recomend_option = st.sidebar.selectbox('Seleccione una opción', options=['App', 'Gráficos']) # Nuevo selectbox para sub-selección
+        if recomend_option == 'App':
             recomend.main()
         elif recomend_option == 'Gráficos':
             plots.get_top_25_beer_styles(df_Beer)
