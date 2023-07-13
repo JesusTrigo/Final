@@ -60,7 +60,7 @@ def plot_beer_wordcloud(df_Beer):
     # Asegurarse de que el gráfico se ajuste bien a la figura
     fig.tight_layout()
     # Agregar título al gráfico
-    ax.set_title("Nube de palabras de nombres de cervezas")
+    plt.title("Nube de palabras de nombres de cervezas")
     # Mostrar el gráfico
     st.pyplot(fig)
         
