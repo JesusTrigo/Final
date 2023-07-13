@@ -18,7 +18,7 @@ import plotly.express as px
 import seaborn as sns
 import matplotlib.pyplot as plt
 import random
-from airtable import
+from airtable import Airtable
 import sys
 
 
