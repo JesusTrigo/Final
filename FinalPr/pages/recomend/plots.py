@@ -22,6 +22,25 @@ def get_top_25_beer_styles(df_Beer):
     # Contar cuántas veces aparece cada tipo de cerveza y devolver los 25 primeros
     return df_Beer['beer/style'].value_counts().head(25).index
     
+def plot_most_common_beer_bar(df_Beer):
+    # Contar cuántas veces aparece cada tipo de cerveza y seleccionar los 25 primeros
+    beer_counts = df_Beer['beer/style'].value_counts().nlargest(25)
+    # Crear un nuevo gráfico de tamaño 10x10
+    fig, ax = plt.subplots(figsize=(10, 10))
+    # Crear un gráfico de barras horizontales
+    sns.barplot(x=beer_counts.values, y=beer_counts.index, ax=ax)
+    # Título del gráfico
+    ax.set_title('Distribución de las 25 cervezas más comunes por tipo')
+    # Etiqueta del eje x
+    ax.set_xlabel('Cantidad')
+    # Etiqueta del eje y
+    ax.set_ylabel('Tipo de cerveza')
+    # Asegurarse de que el gráfico se ajuste bien a la figura
+    fig.tight_layout()
+    # Mostrar el gráfico
+    st.pyplot(fig)
+
+    
 # Función para crear una nube de palabras con los nombres de las cervezas
 def plot_beer_wordcloud(df_Beer):
     # Contar cuántas veces aparece cada nombre de cerveza
