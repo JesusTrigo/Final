@@ -8,7 +8,9 @@ import numpy as np
 import streamlit as st
 import plotly.graph_objects as go
 import pandas as pd
+from pages.recomend import recomend
 
+df_Beer = recomend.df_Beer
 
 def intro():
     st.header("Gráficos recomendador de cervezas")
